@@ -2,24 +2,34 @@
 
 ## Usage
 
-Write to UserDefaults (e.g. String)
+Write to UserDefaults
 
 ```swift
-let user = UserDefaults()
-user["Key"] = "String"
+Defaults["Key"] = "Value"
+Defaults["Bool"] = true
+Defaults["Number"] = -3.4
+Defaults["Array"] = ["Value1", "Value2"]
 ```
 
-Read from UserDefaults (e.g. String)
+Read from UserDefaults
 
 ```swift
-let string = user.string("Key")
+let string = Defaults.string("Key")
+// string = Optional("Value")
 ```
 
-or
 
 ```swift
-let string = user["Key"] as? String
+let string = Defaults.stringValue("Key")
+// string = "Value"
 ```
+
+
+```swift
+let object = Defaults["Key"]
+// object = Optional(Value)
+```
+
 ## License
 
 Copyright © 2015 David Walter \(www.davidwalter.at)

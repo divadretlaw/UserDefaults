@@ -23,65 +23,112 @@
 //
 
 #if os(iOS)
-    
-    import UIKit
-    
+
+import Foundation
+
 #elseif os(OSX)
-    
-    import AppKit
-    
+
+import Cocoa
+
 #endif
 
+let Defaults = UserDefaults()
+
 class UserDefaults {
-    
-    var userDefaults : NSUserDefaults?
-    
+
+    private var userDefaults : NSUserDefaults?
+
     // MARK : init
-    
-    init() {
+
+    private init() {
         userDefaults = NSUserDefaults.standardUserDefaults()
     }
-    
+
     init(defaults: NSUserDefaults) {
         userDefaults = defaults
     }
-    
+
     subscript(key: String) -> AnyObject? {
         set(value) {
             switch(value) {
-            case is Array<AnyObject>,
-            is NSData,
-            is Dictionary<String, AnyObject>,
-            is Bool,
-            is Double,
-            is Float,
-            is Int,
+            case
             is String,
-            is NSURL:
+            is NSString,
+            is NSNumber,
+            is NSData,
+            is NSDate,
+            is NSURL,
+            // Array
+            is [String],
+            is [NSString],
+            is [NSNumber],
+            is [NSData],
+            is [NSDate],
+            // Dictionary
+            is [String: String],
+            is [String: NSString],
+            is [String: NSNumber],
+            is [String: NSData],
+            is [String: NSDate],
+            is [String: NSURL]:
                 userDefaults?.setObject(value, forKey: key)
                 userDefaults?.synchronize()
             default:
-                break
+                assertionFailure("Invalid value type")
             }
         }
         get {
             return userDefaults?.objectForKey(key)
         }
     }
-    
+
     // MARK : Getting values associated with the specified key
-    
+
+    /**
+     * Returns the array associated with the specified key
+     */
     func array(key: String) -> [AnyObject]? {
         return userDefaults?.arrayForKey(key)
     }
-    
+
+    /**
+     * Returns the array associated with the specified key
+     */
+    func arrayValue(key: String) -> [AnyObject] {
+        return array(key) ?? []
+    }
+
     /**
      * Returns the data object associated with the specified key
      */
     func data(key: String) -> NSData? {
         return userDefaults?.dataForKey(key)
     }
-    
+
+    /**
+     * Returns the data object associated with the specified key
+     */
+    func dataValue(key: String) -> NSData {
+        return data(key) ?? NSData()
+    }
+
+    /**
+     * Returns the NSDate instance associated with the specified key
+     */
+    func date(key: String) -> NSDate? {
+        if let date = userDefaults?.objectForKey(key) as? NSDate {
+            return date
+        }
+        return nil
+    }
+
+    /**
+     * Returns the data object associated with the specified key
+     */
+    func dateValue(key: String) -> NSDate {
+        return date(key) ?? NSDate()
+    }
+
     /**
      * Returns the Boolean value associated with the specified key
      */
@@ -91,7 +138,7 @@ class UserDefaults {
         }
         return false
     }
-    
+
     /**
      * Returns the double value associated with the specified key
      */
@@ -101,7 +148,7 @@ class UserDefaults {
         }
         return 0.0
     }
-    
+
     /**
      * Returns the float value associated with the specified key
      */
@@ -111,7 +158,7 @@ class UserDefaults {
         }
         return 0.0
     }
-    
+
     /**
      * Returns the integer value associated with the specified key
      */
@@ -121,38 +168,58 @@ class UserDefaults {
         }
         return 0
     }
-    
+
     /**
      * Returns the dictionary object associated with the specified key
      */
     func dictionary(key: String) -> [String : AnyObject]? {
         return userDefaults?.dictionaryForKey(key)
     }
-    
+
+    /**
+     * Returns the dictionary object associated with the specified key
+     */
+    func dictionaryValue(key: String) -> [String : AnyObject] {
+        return dictionary(key) ?? [:]
+    }
+
     /**
      * Returns the string associated with the specified key
      */
     func string(key: String) -> String? {
         return userDefaults?.stringForKey(key)
     }
-    
+
+    /**
+     * Returns the string associated with the specified key
+     */
+    func stringValue(key: String) -> String {
+        return string(key) ?? ""
+    }
+
     /**
      * Returns the NSURL instance associated with the specified key
      */
     func url(key: String) -> NSURL? {
         return userDefaults?.URLForKey(key)
     }
-    
+
+    /**
+     * Returns the NSURL instance associated with the specified key
+     */
+    func urlValue(key: String) -> NSURL {
+        return self.url(key) ?? NSURL()
+    }
+
     // MARK : Clearing UserDefaults
-    
+
     /**
     * Deletes the stored value associated with the specified key
     */
     func clear(key: String) {
         userDefaults?.removeObjectForKey(key)
-        userDefaults?.synchronize()
     }
-    
+
     /**
      * Deletes every stored value in the UserDefaults
      */
