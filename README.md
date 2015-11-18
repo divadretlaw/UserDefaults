@@ -1,5 +1,25 @@
 # UserDefaults
 
+## Usage
+
+Write to UserDefaults (e.g. String)
+
+```swift
+let user = UserDefaults()
+user["Key"] = "String"
+```
+
+Read from UserDefaults (e.g. String)
+
+```swift
+let string = user.string("Key")
+```
+
+or
+
+```swift
+let string = user["key"] as? String
+```
 ## License
 
 Copyright © 2015 David Walter \(www.davidwalter.at)

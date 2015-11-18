@@ -23,140 +23,142 @@
 //
 
 #if os(iOS)
-
-import UIKit
-
+    
+    import UIKit
+    
 #elseif os(OSX)
-
-import AppKit
-
+    
+    import AppKit
+    
 #endif
 
 class UserDefaults {
-
-    class func set(array: NSArray?, key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(array, forKey: key)
-        userDefaults.synchronize()
+    
+    var userDefaults : NSUserDefaults?
+    
+    // MARK : init
+    
+    init() {
+        userDefaults = NSUserDefaults.standardUserDefaults()
     }
-
-    class func set(data: NSData?, key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(data, forKey: key)
-        userDefaults.synchronize()
+    
+    init(defaults: NSUserDefaults) {
+        userDefaults = defaults
     }
-
-    class func set(dictionary: NSDictionary?, key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(dictionary, forKey: key)
-        userDefaults.synchronize()
+    
+    subscript(key: String) -> AnyObject? {
+        set(value) {
+            switch(value) {
+            case is Array<AnyObject>,
+            is NSData,
+            is Dictionary<String, AnyObject>,
+            is Bool,
+            is Double,
+            is Float,
+            is Int,
+            is String,
+            is NSURL:
+                userDefaults?.setObject(value, forKey: key)
+                userDefaults?.synchronize()
+            default:
+                break
+            }
+        }
+        get {
+            return userDefaults?.objectForKey(key)
+        }
     }
-
-    /**
-     * Also accepts an integer, float, double or Boolean value
-     */
-    class func set(number: NSNumber?, key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(number, forKey: key)
-        userDefaults.synchronize()
+    
+    // MARK : Getting values associated with the specified key
+    
+    func array(key: String) -> [AnyObject]? {
+        return userDefaults?.arrayForKey(key)
     }
-
-    class func set(string: String?, key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(string, forKey: key)
-        userDefaults.synchronize()
-    }
-
-    class func set(url: NSURL?, key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(url, forKey: key)
-        userDefaults.synchronize()
-    }
-
-    /**
-     * Returns the array associated with the specified key
-     */
-    class func array(key: String) -> NSArray? {
-        return NSUserDefaults.standardUserDefaults().arrayForKey(key)
-    }
-
+    
     /**
      * Returns the data object associated with the specified key
      */
-    class func data(key: String) -> NSData? {
-        return NSUserDefaults.standardUserDefaults().dataForKey(key)
+    func data(key: String) -> NSData? {
+        return userDefaults?.dataForKey(key)
     }
-
-    //NSNumber types
-
+    
     /**
      * Returns the Boolean value associated with the specified key
      */
-    class func bool(key: String) -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey(key)
+    func bool(key: String) -> Bool {
+        if let ud = userDefaults {
+            return ud.boolForKey(key)
+        }
+        return false
     }
-
+    
     /**
      * Returns the double value associated with the specified key
      */
-    class func double(key: String) -> Double {
-        return NSUserDefaults.standardUserDefaults().doubleForKey(key)
+    func double(key: String) -> Double {
+        if let ud = userDefaults {
+            return ud.doubleForKey(key)
+        }
+        return 0.0
     }
-
+    
     /**
      * Returns the float value associated with the specified key
      */
-    class func float(key: String) -> Float {
-        return NSUserDefaults.standardUserDefaults().floatForKey(key)
+    func float(key: String) -> Float {
+        if let ud = userDefaults {
+            return ud.floatForKey(key)
+        }
+        return 0.0
     }
-
+    
     /**
      * Returns the integer value associated with the specified key
      */
-    class func integer(key: String) -> Int {
-        return NSUserDefaults.standardUserDefaults().integerForKey(key)
+    func integer(key: String) -> Int {
+        if let ud = userDefaults {
+            return ud.integerForKey(key)
+        }
+        return 0
     }
-
-    //NSNumber types
-
+    
     /**
      * Returns the dictionary object associated with the specified key
      */
-    class func dictionary(key: String) -> NSDictionary? {
-        return NSUserDefaults.standardUserDefaults().dictionaryForKey(key)
+    func dictionary(key: String) -> [String : AnyObject]? {
+        return userDefaults?.dictionaryForKey(key)
     }
-
+    
     /**
      * Returns the string associated with the specified key
      */
-    class func string(key: String) -> String? {
-        return NSUserDefaults.standardUserDefaults().stringForKey(key)
+    func string(key: String) -> String? {
+        return userDefaults?.stringForKey(key)
     }
-
+    
     /**
      * Returns the NSURL instance associated with the specified key
      */
-    class func url(key: String) -> NSURL? {
-        return NSUserDefaults.standardUserDefaults().URLForKey(key)
+    func url(key: String) -> NSURL? {
+        return userDefaults?.URLForKey(key)
     }
-
-
+    
+    // MARK : Clearing UserDefaults
+    
     /**
-     * Deletes the stored value associated with the specified key
-     */
-    class func clear(key: String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.removeObjectForKey(key)
-        userDefaults.synchronize()
+    * Deletes the stored value associated with the specified key
+    */
+    func clear(key: String) {
+        userDefaults?.removeObjectForKey(key)
+        userDefaults?.synchronize()
     }
-
+    
     /**
      * Deletes every stored value in the UserDefaults
      */
-    class func clearAll() {
+    func clearAll() {
         if let appDomain = NSBundle.mainBundle().bundleIdentifier {
-            NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
+            userDefaults?.removePersistentDomainForName(appDomain)
         }
     }
-
 }
