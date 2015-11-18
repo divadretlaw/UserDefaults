@@ -18,7 +18,7 @@ let string = user.string("Key")
 or
 
 ```swift
-let string = user["key"] as? String
+let string = user["Key"] as? String
 ```
 ## License
 
