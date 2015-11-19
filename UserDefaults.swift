@@ -22,15 +22,7 @@
 // THE SOFTWARE.
 //
 
-#if os(iOS)
-
 import Foundation
-
-#elseif os(OSX)
-
-import Cocoa
-
-#endif
 
 let Defaults = UserDefaults()
 
