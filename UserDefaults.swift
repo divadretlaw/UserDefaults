@@ -24,9 +24,16 @@
 
 import Foundation
 
-let Defaults = UserDefaults()
+// extension UDKeys {
+//     // Declare any key you want to use here as a static key e.g.
+//     static let key = UDKey<String>("Key")
+// }
 
-class UserDefaults {
+// Global Defaults
+
+public let Defaults = UserDefaults()
+
+public class UserDefaults {
 
     private var userDefaults : NSUserDefaults?
 
@@ -39,6 +46,60 @@ class UserDefaults {
     init(defaults: NSUserDefaults) {
         userDefaults = defaults
     }
+
+    // MARK : UDKey key
+
+    subscript(udkey: UDKey<Bool>) -> Bool {
+        get { return self.bool(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<Int>) -> Int {
+        get { return self.integer(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<Float>) -> Float {
+        get { return self.float(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<Double>) -> Double {
+        get { return self.double(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<[AnyObject]>) -> [AnyObject]? {
+        get { return self.array(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<NSData>) -> NSData? {
+        get { return self.data(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<NSDate>) -> NSDate? {
+        get { return self.date(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<[String : AnyObject]>) -> [String : AnyObject]? {
+        get { return self.dictionary(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<String>) -> String? {
+        get { return self.string(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    subscript(udkey: UDKey<NSURL>) -> NSURL? {
+        get { return self.url(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+
+    // MARK: String key
 
     subscript(key: String) -> AnyObject? {
         set(value) {
@@ -77,8 +138,8 @@ class UserDefaults {
     // MARK : Getting values associated with the specified key
 
     /**
-     * Returns the array associated with the specified key
-     */
+    * Returns the array associated with the specified key
+    */
     func array(key: String) -> [AnyObject]? {
         return userDefaults?.arrayForKey(key)
     }
@@ -219,5 +280,14 @@ class UserDefaults {
         if let appDomain = NSBundle.mainBundle().bundleIdentifier {
             userDefaults?.removePersistentDomainForName(appDomain)
         }
+    }
+}
+
+class UDKeys { private init() {} }
+
+class UDKey<T> : UDKeys {
+    let key : String
+    init(_ key: String) {
+        self.key = key
     }
 }

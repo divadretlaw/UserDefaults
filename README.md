@@ -1,33 +1,75 @@
 # UserDefaults
 
-## Usage
+Static Keys
 
-Write to UserDefaults
+```swift
+extension UDKeys {
+  static let Key = UDKey<String>("Key")
+  static let Number = UDKey<Double>("Number")
+  static let Condition = UDKey<Bool>("Condition")
+}
+```
+
+#### Write to UserDefaults
+
+Static keys
+
+```swift
+Defaults[.Key] = "Value"
+Defaults[.Number] = -3.4
+Defaults[.Condition] = true
+```
+
+String Keys
 
 ```swift
 Defaults["Key"] = "Value"
-Defaults["Bool"] = true
 Defaults["Number"] = -3.4
-Defaults["Array"] = ["Value1", "Value2"]
+Defaults["Condition"] = true
 ```
 
-Read from UserDefaults
+#### Read from UserDefaults
+
+Static Keys
 
 ```swift
-let string = Defaults.string("Key")
-// string = Optional("Value")
+var string = Defaults[.Key]
+// string = Optional(Value)
+
+if (Defaults[.Condition]) {
+  // true
+}
 ```
 
-
-```swift
-let string = Defaults.stringValue("Key")
-// string = "Value"
-```
-
+String Keys
 
 ```swift
 let object = Defaults["Key"]
 // object = Optional(Value)
+
+let string = Defaults.string("Key")
+// string = Optional("Value")
+
+let string = Defaults.stringValue("Key")
+// string = "Value"
+```
+
+#### Alter UserDefaults
+
+Static Keys
+
+```swift
+Defaults[.Key] += ". Other value."
+
+Defaults[.Number] *= 1.2
+```
+
+String Keys
+
+```swift
+Defaults["Key"] = Defaults.stringValue("Key") + ". Other value."
+
+Defaults["Number"] = Defaults.double("Number")*1.2
 ```
 
 ## License
