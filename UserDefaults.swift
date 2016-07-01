@@ -35,67 +35,67 @@ public let Defaults = UserDefaults()
 
 public class UserDefaults {
 
-    private var userDefaults : NSUserDefaults?
+    private var userDefaults : Foundation.UserDefaults?
 
     // MARK : init
 
     private init() {
-        userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults = Foundation.UserDefaults.standard()
     }
 
-    init(defaults: NSUserDefaults) {
+    init(defaults: Foundation.UserDefaults) {
         userDefaults = defaults
     }
 
     // MARK : UDKey key
 
     subscript(udkey: UDKey<Bool>) -> Bool {
-        get { return self.bool(udkey.key) }
+        get { return self.bool(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<Int>) -> Int {
-        get { return self.integer(udkey.key) }
+        get { return self.integer(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<Float>) -> Float {
-        get { return self.float(udkey.key) }
+        get { return self.float(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<Double>) -> Double {
-        get { return self.double(udkey.key) }
+        get { return self.double(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<[AnyObject]>) -> [AnyObject]? {
-        get { return self.array(udkey.key) }
+        get { return self.array(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<NSData>) -> NSData? {
-        get { return self.data(udkey.key) }
+        get { return self.data(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<NSDate>) -> NSDate? {
-        get { return self.date(udkey.key) }
+        get { return self.date(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<[String : AnyObject]>) -> [String : AnyObject]? {
-        get { return self.dictionary(udkey.key) }
+        get { return self.dictionary(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<String>) -> String? {
-        get { return self.string(udkey.key) }
+        get { return self.string(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
     subscript(udkey: UDKey<NSURL>) -> NSURL? {
-        get { return self.url(udkey.key) }
+        get { return self.url(key: udkey.key) }
         set { self[udkey.key] = newValue }
     }
 
@@ -124,52 +124,52 @@ public class UserDefaults {
             is [String: NSData],
             is [String: NSDate],
             is [String: NSURL]:
-                userDefaults?.setObject(value, forKey: key)
+                userDefaults?.set(value, forKey: key)
                 userDefaults?.synchronize()
             default:
                 assertionFailure("Invalid value type")
             }
         }
         get {
-            return userDefaults?.objectForKey(key)
+            return userDefaults?.object(forKey: key)
         }
     }
 
     // MARK : Getting values associated with the specified key
 
     /**
-    * Returns the array associated with the specified key
-    */
+     * Returns the array associated with the specified key
+     */
     func array(key: String) -> [AnyObject]? {
-        return userDefaults?.arrayForKey(key)
+        return userDefaults?.array(forKey: key)
     }
 
     /**
      * Returns the array associated with the specified key
      */
     func arrayValue(key: String) -> [AnyObject] {
-        return array(key) ?? []
+        return array(key: key) ?? []
     }
 
     /**
      * Returns the data object associated with the specified key
      */
     func data(key: String) -> NSData? {
-        return userDefaults?.dataForKey(key)
+        return userDefaults?.data(forKey: key)
     }
 
     /**
      * Returns the data object associated with the specified key
      */
     func dataValue(key: String) -> NSData {
-        return data(key) ?? NSData()
+        return data(key: key) ?? NSData()
     }
 
     /**
      * Returns the NSDate instance associated with the specified key
      */
     func date(key: String) -> NSDate? {
-        if let date = userDefaults?.objectForKey(key) as? NSDate {
+        if let date = userDefaults?.object(forKey: key) as? NSDate {
             return date
         }
         return nil
@@ -179,7 +179,7 @@ public class UserDefaults {
      * Returns the data object associated with the specified key
      */
     func dateValue(key: String) -> NSDate {
-        return date(key) ?? NSDate()
+        return date(key: key) ?? NSDate()
     }
 
     /**
@@ -187,7 +187,7 @@ public class UserDefaults {
      */
     func bool(key: String) -> Bool {
         if let ud = userDefaults {
-            return ud.boolForKey(key)
+            return ud.bool(forKey: key)
         }
         return false
     }
@@ -197,7 +197,7 @@ public class UserDefaults {
      */
     func double(key: String) -> Double {
         if let ud = userDefaults {
-            return ud.doubleForKey(key)
+            return ud.double(forKey: key)
         }
         return 0.0
     }
@@ -207,7 +207,7 @@ public class UserDefaults {
      */
     func float(key: String) -> Float {
         if let ud = userDefaults {
-            return ud.floatForKey(key)
+            return ud.float(forKey: key)
         }
         return 0.0
     }
@@ -217,7 +217,7 @@ public class UserDefaults {
      */
     func integer(key: String) -> Int {
         if let ud = userDefaults {
-            return ud.integerForKey(key)
+            return ud.integer(forKey: key)
         }
         return 0
     }
@@ -226,59 +226,59 @@ public class UserDefaults {
      * Returns the dictionary object associated with the specified key
      */
     func dictionary(key: String) -> [String : AnyObject]? {
-        return userDefaults?.dictionaryForKey(key)
+        return userDefaults?.dictionary(forKey: key)
     }
 
     /**
      * Returns the dictionary object associated with the specified key
      */
     func dictionaryValue(key: String) -> [String : AnyObject] {
-        return dictionary(key) ?? [:]
+        return dictionary(key: key) ?? [:]
     }
 
     /**
      * Returns the string associated with the specified key
      */
     func string(key: String) -> String? {
-        return userDefaults?.stringForKey(key)
+        return userDefaults?.string(forKey: key)
     }
 
     /**
      * Returns the string associated with the specified key
      */
     func stringValue(key: String) -> String {
-        return string(key) ?? ""
+        return string(key: key) ?? ""
     }
 
     /**
      * Returns the NSURL instance associated with the specified key
      */
     func url(key: String) -> NSURL? {
-        return userDefaults?.URLForKey(key)
+        return userDefaults?.url(forKey: key)
     }
 
     /**
      * Returns the NSURL instance associated with the specified key
      */
     func urlValue(key: String) -> NSURL {
-        return self.url(key) ?? NSURL()
+        return self.url(key: key) ?? NSURL()
     }
 
     // MARK : Clearing UserDefaults
 
     /**
-    * Deletes the stored value associated with the specified key
-    */
+     * Deletes the stored value associated with the specified key
+     */
     func clear(key: String) {
-        userDefaults?.removeObjectForKey(key)
+        userDefaults?.removeObject(forKey: key)
     }
 
     /**
      * Deletes every stored value in the UserDefaults
      */
     func clearAll() {
-        if let appDomain = NSBundle.mainBundle().bundleIdentifier {
-            userDefaults?.removePersistentDomainForName(appDomain)
+        if let appDomain = Bundle.main().bundleIdentifier {
+            userDefaults?.removePersistentDomain(forName: appDomain)
         }
     }
 }
