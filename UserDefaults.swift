@@ -33,7 +33,7 @@ import Foundation
 
 public let Defaults = UserDefaults()
 
-open class DUserDefaults {
+open class UserDefaults {
 
     fileprivate var userDefaults : Foundation.UserDefaults?
 
