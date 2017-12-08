@@ -59,17 +59,17 @@ let string = UserDefaults.standard.stringValue("Key")
 Static Keys
 
 ```swift
-Defaults[.Key] += ". Other value."
+UserDefaults.standard[.Key] += ". Other value."
 
-Defaults[.Number] *= 1.2
+UserDefaults.standard[.Number] *= 1.2
 ```
 
 String Keys
 
 ```swift
-UserDefaults.standard["Key"] = Defaults.stringValue("Key") + ". Other value."
+UserDefaults.standard["Key"] = UserDefaults.standard.stringValue("Key") + ". Other value."
 
-UserDefaults.standard["Number"] = Defaults.double("Number")*1.2
+UserDefaults.standard["Number"] = UserDefaults.standard.double("Number") * 1.2
 ```
 
 ## License
