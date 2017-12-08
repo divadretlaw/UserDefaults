@@ -15,17 +15,17 @@ extension UDKeys {
 Static keys
 
 ```swift
-Defaults[.Key] = "Value"
-Defaults[.Number] = -3.4
-Defaults[.Condition] = true
+UserDefaults.standard[.Key] = "Value"
+UserDefaults.standard[.Number] = -3.4
+UserDefaults.standard[.Condition] = true
 ```
 
 String Keys
 
 ```swift
-Defaults["Key"] = "Value"
-Defaults["Number"] = -3.4
-Defaults["Condition"] = true
+UserDefaults.standard["Key"] = "Value"
+UserDefaults.standard["Number"] = -3.4
+UserDefaults.standard["Condition"] = true
 ```
 
 #### Read from UserDefaults
@@ -33,10 +33,10 @@ Defaults["Condition"] = true
 Static Keys
 
 ```swift
-var string = Defaults[.Key]
+var string = UserDefaults.standard[.Key]
 // string = Optional(Value)
 
-if (Defaults[.Condition]) {
+if (UserDefaults.standard[.Condition]) {
   // true
 }
 ```
@@ -44,13 +44,13 @@ if (Defaults[.Condition]) {
 String Keys
 
 ```swift
-let object = Defaults["Key"]
+let object = UserDefaults.standard["Key"]
 // object = Optional(Value)
 
-let string = Defaults.string("Key")
+let string = UserDefaults.standard.string("Key")
 // string = Optional("Value")
 
-let string = Defaults.stringValue("Key")
+let string = UserDefaults.standard.stringValue("Key")
 // string = "Value"
 ```
 
@@ -67,14 +67,14 @@ Defaults[.Number] *= 1.2
 String Keys
 
 ```swift
-Defaults["Key"] = Defaults.stringValue("Key") + ". Other value."
+UserDefaults.standard["Key"] = Defaults.stringValue("Key") + ". Other value."
 
-Defaults["Number"] = Defaults.double("Number")*1.2
+UserDefaults.standard["Number"] = Defaults.double("Number")*1.2
 ```
 
 ## License
 
-Copyright © 2015 David Walter \(www.davidwalter.at)
+Copyright © 2017 David Walter \(www.davidwalter.at)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
