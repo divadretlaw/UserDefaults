@@ -324,7 +324,7 @@ public extension UserDefaults {
 public class UDKeys { fileprivate init() {} }
 
 public class UDKey<T> : UDKeys {
-    let key : String
+    public let key : String
     public init(_ key: String) {
         self.key = key
     }
