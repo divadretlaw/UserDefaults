@@ -113,6 +113,77 @@ public extension UserDefaults {
             return self.object(forKey: key) as AnyObject?
         }
     }
+    
+    // MARK: Getting values associated with the specified UDKey
+    
+    /**
+     * Returns the array associated with the specified key
+     */
+    public func value(_ key: UDKey<[AnyObject]>) -> [AnyObject] {
+        return self[key] ?? []
+    }
+    
+    /**
+     * Returns the data object associated with the specified key
+     */
+    public func value(_ key: UDKey<Data>) -> Data {
+        return self[key] ?? Data()
+    }
+    
+    /**
+     * Returns the data object associated with the specified key
+     */
+    public func value(_ key: UDKey<Date>) -> Date {
+        return self[key] ?? Date()
+    }
+    
+    /**
+     * Returns the Boolean value associated with the specified key
+     */
+    public func value(_ key: UDKey<Bool>) -> Bool {
+        return self[key]
+    }
+    
+    /**
+     * Returns the double value associated with the specified key
+     */
+    public func value(_ key: UDKey<Double>) -> Double {
+        return self[key]
+    }
+    
+    /**
+     * Returns the float value associated with the specified key
+     */
+    public func value(_ key: UDKey<Float>) -> Float {
+        return self[key]
+    }
+    
+    /**
+     * Returns the integer value associated with the specified key
+     */
+    public func value(_ key: UDKey<Int>) -> Int {
+        return self[key]
+    }
+    
+    /**
+     * Returns the dictionary object associated with the specified key
+     */
+    public func value(_ key: UDKey<[String : AnyObject]>) -> [String : AnyObject] {
+        return self[key] ?? [:]
+    }
+    /**
+     * Returns the string associated with the specified key
+     */
+    public func value(_ key: UDKey<String>) -> String {
+        return self[key] ?? ""
+    }
+    
+    /**
+     * Returns the NSURL instance associated with the specified key
+     */
+    func value(_ key: UDKey<URL>) -> URL {
+        return self[key] ?? (NSURL() as URL)
+    }
 
     // MARK : Getting values associated with the specified key
 
