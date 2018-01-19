@@ -38,6 +38,7 @@
 		636BF0A12012164E000B0E1E /* UserDefaultsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserDefaultsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		636BF0A32012164E000B0E1E /* UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTests.swift; sourceTree = "<group>"; };
 		636BF0A52012164E000B0E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		636BF0AC2012263D000B0E1E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 		635195861FDAF72200522A27 = {
 			isa = PBXGroup;
 			children = (
+				636BF0AC2012263D000B0E1E /* README.md */,
 				635195921FDAF72200522A27 /* Sources */,
 				635195B11FDAFB6800522A27 /* UserDefaults-macOS */,
 				635195BF1FDAFB9500522A27 /* UserDefaults-iOS */,
