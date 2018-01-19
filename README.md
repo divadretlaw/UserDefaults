@@ -1,9 +1,9 @@
 # UserDefaults
 
-[![Build Status](https://travis-ci.org/divadretlaw/UserDefaults.svg)](https://travis-ci.org/divadretlaw/UserDefaults)
-[![Platforms](https://img.shields.io/badge/Platforms-iOS%20|%20macOS-blue.svg?style=flat-square)](https://github.com/divadretlaw/UserDefaults)
-[![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
-[![Swift](https://img.shields.io/badge/swift-4.0-orange.svg?style=flat-square)](https://swift.org)
+[![Build Status](https://travis-ci.org/divadretlaw/UserDefaults.svg?style=flat)](https://travis-ci.org/divadretlaw/UserDefaults)
+[![Platforms](https://img.shields.io/badge/Platforms-iOS%20|%20macOS-blue.svg?style=flat)](https://github.com/divadretlaw/UserDefaults)
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift](https://img.shields.io/badge/swift-4.0-orange.svg?style=flat)](https://swift.org)
 ## Usage
 
 Define Static Keys for easy access to data stored in UserDefaults
