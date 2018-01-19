@@ -26,91 +26,166 @@ import Foundation
 
 public extension UserDefaults {
 
-    // MARK : UDKey subscripts
+    // MARK: - subscripts Single
 
     public subscript(udkey: UDKey<Bool>) -> Bool {
         get { return self.bool(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
+        set { self[udkey.key] = newValue }
     }
 
     public subscript(udkey: UDKey<Int>) -> Int {
         get { return self.integer(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
+        set { self[udkey.key] = newValue }
     }
 
     public subscript(udkey: UDKey<Float>) -> Float {
         get { return self.float(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
+        set { self[udkey.key] = newValue }
     }
 
     public subscript(udkey: UDKey<Double>) -> Double {
         get { return self.double(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
+        set { self[udkey.key] = newValue }
     }
-
-    public subscript(udkey: UDKey<[AnyObject]>) -> [AnyObject]? {
-        get { return self.array(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
-    }
-
-    public subscript(udkey: UDKey<Data>) -> Data? {
-        get { return self.data(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
-    }
-
-    public subscript(udkey: UDKey<Date>) -> Date? {
-        get { return self.date(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
-    }
-
-    public subscript(udkey: UDKey<[String : AnyObject]>) -> [String : AnyObject]? {
-        get { return self.dictionary(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
-    }
-
+    
     public subscript(udkey: UDKey<String>) -> String? {
         get { return self.string(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
+        set { self[udkey.key] = newValue }
     }
-
+    
+    public subscript(udkey: UDKey<Data>) -> Data? {
+        get { return self.data(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<Date>) -> Date? {
+        get { return self.date(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+    
     public subscript(udkey: UDKey<URL>) -> URL? {
         get { return self.url(udkey.key) }
-        set { self[udkey.key] = newValue as AnyObject? }
+        set { self[udkey.key] = newValue }
     }
+    
+    // MARK: - subscripts Array
+    
+    public subscript(udkey: UDKey<[Any]>) -> [Any]? {
+        get { return self.array(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[Bool]>) -> [Bool]? {
+        get { return self.array(udkey.key) as? [Bool] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[Int]>) -> [Int]? {
+        get { return self.array(udkey.key) as? [Int] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[Float]>) -> [Float]? {
+        get { return self.array(udkey.key) as? [Float] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[Double]>) -> [Double]? {
+        get { return self.array(udkey.key) as? [Double] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String]>) -> [String]? {
+        get { return self.array(udkey.key) as? [String] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[Data]>) -> [Data]? {
+        get { return self.array(udkey.key) as? [Data] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[Date]>) -> [Date]? {
+        get { return self.array(udkey.key) as? [Date] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    /*public subscript(udkey: UDKey<[URL]>) -> [URL]? {
+        get { return self.array(udkey.key) as? [URL] }
+        set { self[udkey.key] = newValue }
+    }*/
+    
+    // MARK: - subscript Dictionary
+    
+    public subscript(udkey: UDKey<[String : Any]>) -> [String : Any]? {
+        get { return self.dictionary(udkey.key) }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : Bool]>) -> [String : Bool]? {
+        get { return self.dictionary(udkey.key) as? [String : Bool] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : Int]>) -> [String : Int]? {
+        get { return self.dictionary(udkey.key) as? [String : Int] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : Float]>) -> [String : Float]? {
+        get { return self.dictionary(udkey.key) as? [String : Float] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : Double]>) -> [String : Double]? {
+        get { return self.dictionary(udkey.key) as? [String : Double] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : String]>) -> [String : String]? {
+        get { return self.dictionary(udkey.key) as? [String : String] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : Data]>) -> [String : Data]? {
+        get { return self.dictionary(udkey.key) as? [String : Data] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    public subscript(udkey: UDKey<[String : Date]>) -> [String : Date]? {
+        get { return self.dictionary(udkey.key) as? [String : Date] }
+        set { self[udkey.key] = newValue }
+    }
+    
+    // MARK: - String subscripts
 
-    // MARK: String subscripts
-
-    public subscript(key: String) -> AnyObject? {
+    public subscript(key: String) -> Any? {
         set(value) {
             switch(value) {
             case
             is String,
-            is NSString,
             is NSNumber,
             is Data,
             is Date,
-            is URL,
             // Array
             is [String],
-            is [NSString],
             is [NSNumber],
             is [Data],
             is [Date],
             // Dictionary
             is [String: String],
-            is [String: NSString],
             is [String: NSNumber],
             is [String: Data],
-            is [String: Date],
-            is [String: URL]:
+            is [String: Date]:
                 self.set(value, forKey: key)
-                self.synchronize()
+            case is URL:
+                self.set(value as? URL, forKey: key)
             default:
                 assertionFailure("Invalid value type")
             }
         }
         get {
-            return self.object(forKey: key) as AnyObject?
+            return self.object(forKey: key)
         }
     }
     
@@ -119,7 +194,7 @@ public extension UserDefaults {
     /**
      * Returns the array associated with the specified key
      */
-    public func value(_ key: UDKey<[AnyObject]>) -> [AnyObject] {
+    public func value(_ key: UDKey<[Any]>) -> [Any] {
         return self[key] ?? []
     }
     
@@ -168,7 +243,7 @@ public extension UserDefaults {
     /**
      * Returns the dictionary object associated with the specified key
      */
-    public func value(_ key: UDKey<[String : AnyObject]>) -> [String : AnyObject] {
+    public func value(_ key: UDKey<[String : Any]>) -> [String : Any] {
         return self[key] ?? [:]
     }
     /**
@@ -190,15 +265,15 @@ public extension UserDefaults {
     /**
      * Returns the array associated with the specified key
      */
-    public func array(_ key: String) -> [AnyObject]? {
-        return self.array(forKey: key) as [AnyObject]?
+    public func array(_ key: String) -> [Any]? {
+        return self.array(forKey: key) as [Any]?
     }
-
+    
     /**
      * Returns the array associated with the specified key
      */
-    public func arrayValue(_ key: String) -> [AnyObject] {
-        return array(key) ?? []
+    public func arrayValue(_ key: String) -> [Any] {
+        return array(forKey: key) ?? []
     }
 
     /**
@@ -263,14 +338,14 @@ public extension UserDefaults {
     /**
      * Returns the dictionary object associated with the specified key
      */
-    public func dictionary(_ key: String) -> [String : AnyObject]? {
-        return self.dictionary(forKey: key) as [String : AnyObject]?
+    public func dictionary(_ key: String) -> [String : Any]? {
+        return self.dictionary(forKey: key) as [String : Any]?
     }
 
     /**
      * Returns the dictionary object associated with the specified key
      */
-    public func dictionaryValue(_ key: String) -> [String : AnyObject] {
+    public func dictionaryValue(_ key: String) -> [String : Any] {
         return dictionary(key) ?? [:]
     }
 
