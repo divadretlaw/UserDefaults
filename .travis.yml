@@ -1,6 +1,4 @@
 language: objective-c
-xcode_project: UserDefaults.xcodeproj
-xcode_scheme: UserDefaults-iOS
 
 script:
-  - xcodebuild -project "$TRAVIS_XCODE_PROJECT" -scheme "$TRAVIS_XCODE_SCHEME" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
+  - xcodebuild -project UserDefaults.xcodeproj -scheme UserDefaults-iOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
