@@ -1,4 +1,7 @@
 language: objective-c
 
+xcode_project: UserDefaults.xcodeproj
+xcode_scheme: Tests-iOS
+
 script:
-  - xcodebuild -project UserDefaults.xcodeproj -scheme UserDefaults-iOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  - xcodebuild clean build test -project UserDefaults.xcodeproj -scheme Tests-iOS
