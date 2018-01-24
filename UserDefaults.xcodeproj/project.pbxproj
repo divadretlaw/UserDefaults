@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		633AA0D72019371C006EDC04 /* UserDefaults_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 633AA0D52019371C006EDC04 /* UserDefaults_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		633AA0DB20193736006EDC04 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351959B1FDAF72F00522A27 /* UserDefaults.swift */; };
+		633AA0E52019378A006EDC04 /* UserDefaults_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 633AA0E32019378A006EDC04 /* UserDefaults_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		635195B41FDAFB6800522A27 /* UserDefaults_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 635195B21FDAFB6800522A27 /* UserDefaults_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		635195B81FDAFB7400522A27 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351959B1FDAF72F00522A27 /* UserDefaults.swift */; };
 		635195C21FDAFB9500522A27 /* UserDefaults_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 635195C01FDAFB9500522A27 /* UserDefaults_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		633AA0D32019371C006EDC04 /* UserDefaults_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		633AA0D52019371C006EDC04 /* UserDefaults_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults_watchOS.h; sourceTree = "<group>"; };
+		633AA0D62019371C006EDC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		633AA0E12019378A006EDC04 /* UserDefaults_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		633AA0E32019378A006EDC04 /* UserDefaults_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults_tvOS.h; sourceTree = "<group>"; };
+		633AA0E42019378A006EDC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6351959B1FDAF72F00522A27 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		635195B01FDAFB6800522A27 /* UserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		635195B21FDAFB6800522A27 /* UserDefaults_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults_macOS.h; sourceTree = "<group>"; };
@@ -52,6 +61,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		633AA0CF2019371C006EDC04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633AA0DD2019378A006EDC04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		635195AC1FDAFB6800522A27 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,13 +108,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		633AA0D42019371C006EDC04 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				633AA0D52019371C006EDC04 /* UserDefaults_watchOS.h */,
+				633AA0D62019371C006EDC04 /* Info.plist */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		633AA0E22019378A006EDC04 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				633AA0E32019378A006EDC04 /* UserDefaults_tvOS.h */,
+				633AA0E42019378A006EDC04 /* Info.plist */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
 		635195861FDAF72200522A27 = {
 			isa = PBXGroup;
 			children = (
 				636BF0AC2012263D000B0E1E /* README.md */,
 				635195921FDAF72200522A27 /* Sources */,
-				635195B11FDAFB6800522A27 /* macOS */,
 				635195BF1FDAFB9500522A27 /* iOS */,
+				635195B11FDAFB6800522A27 /* macOS */,
+				633AA0D42019371C006EDC04 /* watchOS */,
+				633AA0E22019378A006EDC04 /* tvOS */,
 				636BF0A22012164E000B0E1E /* UserDefaultsTests */,
 				635195911FDAF72200522A27 /* Products */,
 				636BF09820121623000B0E1E /* Frameworks */,
@@ -105,6 +148,8 @@
 				635195BE1FDAFB9500522A27 /* UserDefaults.framework */,
 				636BF0B120122B19000B0E1E /* Tests-iOS.xctest */,
 				636BF0C120122B55000B0E1E /* Tests-macOS.xctest */,
+				633AA0D32019371C006EDC04 /* UserDefaults_watchOS.framework */,
+				633AA0E12019378A006EDC04 /* UserDefaults_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +217,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		633AA0D02019371C006EDC04 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				633AA0D72019371C006EDC04 /* UserDefaults_watchOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633AA0DE2019378A006EDC04 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				633AA0E52019378A006EDC04 /* UserDefaults_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		635195AD1FDAFB6800522A27 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +252,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		633AA0D22019371C006EDC04 /* UserDefaults-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 633AA0DA2019371C006EDC04 /* Build configuration list for PBXNativeTarget "UserDefaults-watchOS" */;
+			buildPhases = (
+				633AA0CE2019371C006EDC04 /* Sources */,
+				633AA0CF2019371C006EDC04 /* Frameworks */,
+				633AA0D02019371C006EDC04 /* Headers */,
+				633AA0D12019371C006EDC04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UserDefaults-watchOS";
+			productName = "UserDefaults-watchOS";
+			productReference = 633AA0D32019371C006EDC04 /* UserDefaults_watchOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		633AA0E02019378A006EDC04 /* UserDefaults-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 633AA0E62019378A006EDC04 /* Build configuration list for PBXNativeTarget "UserDefaults-tvOS" */;
+			buildPhases = (
+				633AA0DC2019378A006EDC04 /* Sources */,
+				633AA0DD2019378A006EDC04 /* Frameworks */,
+				633AA0DE2019378A006EDC04 /* Headers */,
+				633AA0DF2019378A006EDC04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UserDefaults-tvOS";
+			productName = "UserDefaults-tvOS";
+			productReference = 633AA0E12019378A006EDC04 /* UserDefaults_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		635195AF1FDAFB6800522A27 /* UserDefaults-macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 635195B51FDAFB6800522A27 /* Build configuration list for PBXNativeTarget "UserDefaults-macOS" */;
@@ -273,6 +370,14 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "David Walter";
 				TargetAttributes = {
+					633AA0D22019371C006EDC04 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					633AA0E02019378A006EDC04 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					635195AF1FDAFB6800522A27 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -303,15 +408,31 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				635195AF1FDAFB6800522A27 /* UserDefaults-macOS */,
 				635195BD1FDAFB9500522A27 /* UserDefaults-iOS */,
+				635195AF1FDAFB6800522A27 /* UserDefaults-macOS */,
+				633AA0D22019371C006EDC04 /* UserDefaults-watchOS */,
 				636BF0B020122B19000B0E1E /* Tests-iOS */,
 				636BF0C020122B55000B0E1E /* Tests-macOS */,
+				633AA0E02019378A006EDC04 /* UserDefaults-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		633AA0D12019371C006EDC04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633AA0DF2019378A006EDC04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		635195AE1FDAFB6800522A27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +464,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		633AA0CE2019371C006EDC04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				633AA0DB20193736006EDC04 /* UserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633AA0DC2019378A006EDC04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		635195AB1FDAFB6800522A27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +527,100 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		633AA0D82019371C006EDC04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7MLF4U25UX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = watchOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-watchOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		633AA0D92019371C006EDC04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7MLF4U25UX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = watchOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-watchOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		633AA0E72019378A006EDC04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7MLF4U25UX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		633AA0E82019378A006EDC04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7MLF4U25UX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		635195961FDAF72200522A27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -667,6 +897,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		633AA0DA2019371C006EDC04 /* Build configuration list for PBXNativeTarget "UserDefaults-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				633AA0D82019371C006EDC04 /* Debug */,
+				633AA0D92019371C006EDC04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		633AA0E62019378A006EDC04 /* Build configuration list for PBXNativeTarget "UserDefaults-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				633AA0E72019378A006EDC04 /* Debug */,
+				633AA0E82019378A006EDC04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6351958A1FDAF72200522A27 /* Build configuration list for PBXProject "UserDefaults" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
