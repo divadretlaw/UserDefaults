@@ -2,6 +2,7 @@ language: objective-c
 
 xcode_project: UserDefaults.xcodeproj
 xcode_scheme: UserDefaults-iOS
+osx_image: xcode9.2
 
 script:
   - xcodebuild clean build -sdk iphonesimulator -project UserDefaults.xcodeproj -scheme UserDefaults-iOS
