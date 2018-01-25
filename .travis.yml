@@ -1,7 +1,7 @@
 language: objective-c
 
 xcode_project: UserDefaults.xcodeproj
-xcode_scheme: Tests-iOS
+xcode_scheme: UserDefaults-iOS
 
 script:
-  - xcodebuild clean build test -project UserDefaults.xcodeproj -scheme Tests-iOS
+  - xcodebuild clean build -sdk iphonesimulator -project UserDefaults.xcodeproj -scheme UserDefaults-iOS
