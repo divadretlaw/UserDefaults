@@ -1,9 +1,14 @@
 # UserDefaults
 
-[![Build Status](https://travis-ci.org/divadretlaw/UserDefaults.svg?style=flat)](https://travis-ci.org/divadretlaw/UserDefaults)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20watchOS%20|%20tvOS-blue.svg?style=flat)](https://github.com/divadretlaw/UserDefaults)
 [![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift](https://img.shields.io/badge/swift-4.0-orange.svg?style=flat)](https://swift.org)
+
+### Build Status
+
+|macOS|iOS|watchOS|tvOS|
+|:-:|:-:|:-:|:-:|
+|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/1)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/2)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/3)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/4)](https://travis-ci.org/divadretlaw/UserDefaults)|
 
 ## Usage
 
