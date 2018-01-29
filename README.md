@@ -6,9 +6,9 @@
 
 ### Build Status
 
-|macOS|iOS|watchOS|tvOS|
+|iOS|macOS|watchOS|tvOS|
 |:-:|:-:|:-:|:-:|
-|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/1)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/2)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/3)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/4)](https://travis-ci.org/divadretlaw/UserDefaults)|
+|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/2)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/1)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/3)](https://travis-ci.org/divadretlaw/UserDefaults)|[![](https://travis-matrix-badges.herokuapp.com/repos/divadretlaw/UserDefaults/branches/master/4)](https://travis-ci.org/divadretlaw/UserDefaults)|
 
 ## Usage
 
