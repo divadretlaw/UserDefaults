@@ -1,8 +1,18 @@
 language: objective-c
 
 xcode_project: UserDefaults.xcodeproj
-xcode_scheme: UserDefaults-iOS
 osx_image: xcode9.2
 
+matrix:
+  include:
+    - osx_image: xcode9.2
+      env: SCHEME="UserDefaults-macOS"
+    - osx_image: xcode9.2
+      env: SCHEME="UserDefaults-iOS"
+    - osx_image: xcode9.2
+      env: SCHEME="UserDefaults-watchOS"
+    - osx_image: xcode9.2
+      env: SCHEME="UserDefaults-tvOS"
+
 script:
-  - xcodebuild clean build -sdk iphonesimulator -project UserDefaults.xcodeproj -scheme UserDefaults-iOS
+  - xcodebuild clean build -project UserDefaults.xcodeproj -scheme $SCHEME
