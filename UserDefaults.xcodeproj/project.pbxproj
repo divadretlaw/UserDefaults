@@ -14,6 +14,7 @@
 		635195B81FDAFB7400522A27 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351959B1FDAF72F00522A27 /* UserDefaults.swift */; };
 		635195C21FDAFB9500522A27 /* UserDefaults_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 635195C01FDAFB9500522A27 /* UserDefaults_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		635195C61FDAFBB300522A27 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351959B1FDAF72F00522A27 /* UserDefaults.swift */; };
+		6398FEBE20291D0E0094E9F6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351959B1FDAF72F00522A27 /* UserDefaults.swift */; };
 		63E8B72620193B10005B1F50 /* UserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635195BE1FDAFB9500522A27 /* UserDefaults.framework */; };
 		63E8B72C20193B29005B1F50 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636BF0A32012164E000B0E1E /* Tests.swift */; };
 		63E8B73620193B68005B1F50 /* UserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635195B01FDAFB6800522A27 /* UserDefaults.framework */; };
@@ -494,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6398FEBE20291D0E0094E9F6 /* UserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

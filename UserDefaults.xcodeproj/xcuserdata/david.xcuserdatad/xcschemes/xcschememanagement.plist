@@ -7,12 +7,12 @@
 		<key>Tests-iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Tests-macOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>UserDefaults-iOS.xcscheme_^#shared#^_</key>
 		<dict>
