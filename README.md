@@ -1,3 +1,5 @@
+![framework](https://user-images.githubusercontent.com/6899256/35834740-56972364-0ad7-11e8-9374-0f7d523b2367.png)
+
 # UserDefaults [![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage) [![Swift](https://img.shields.io/badge/swift-4.0-orange.svg?style=flat-square)](https://swift.org) [![License](https://img.shields.io/github/license/divadretlaw/userdefaults.svg?style=flat-square)](LICENSE)
 
 [![Platforms](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20watchOS%20|%20tvOS-blue.svg?style=flat-square)](https://github.com/divadretlaw/UserDefaults)
