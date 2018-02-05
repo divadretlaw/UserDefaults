@@ -561,7 +561,7 @@
 				INFOPLIST_FILE = watchOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.watchOS.UserDefaults;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -585,7 +585,7 @@
 				INFOPLIST_FILE = watchOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.watchOS.UserDefaults;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -608,7 +608,7 @@
 				INFOPLIST_FILE = tvOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.tvOS.UserDefaults;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -631,7 +631,7 @@
 				INFOPLIST_FILE = tvOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "at.davidwalter.UserDefaults-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.tvOS.UserDefaults;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
