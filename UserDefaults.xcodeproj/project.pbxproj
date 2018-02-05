@@ -39,10 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		633AA0D32019371C006EDC04 /* UserDefaults_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		633AA0D32019371C006EDC04 /* UserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633AA0D52019371C006EDC04 /* UserDefaults_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults_watchOS.h; sourceTree = "<group>"; };
 		633AA0D62019371C006EDC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		633AA0E12019378A006EDC04 /* UserDefaults_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		633AA0E12019378A006EDC04 /* UserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633AA0E32019378A006EDC04 /* UserDefaults_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults_tvOS.h; sourceTree = "<group>"; };
 		633AA0E42019378A006EDC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		633AA0F120193A65006EDC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 			children = (
 				635195B01FDAFB6800522A27 /* UserDefaults.framework */,
 				635195BE1FDAFB9500522A27 /* UserDefaults.framework */,
-				633AA0D32019371C006EDC04 /* UserDefaults_watchOS.framework */,
-				633AA0E12019378A006EDC04 /* UserDefaults_tvOS.framework */,
+				633AA0D32019371C006EDC04 /* UserDefaults.framework */,
+				633AA0E12019378A006EDC04 /* UserDefaults.framework */,
 				63E8B72120193B10005B1F50 /* Tests-iOS.xctest */,
 				63E8B73120193B68005B1F50 /* Tests-macOS.xctest */,
 			);
@@ -286,7 +286,7 @@
 			);
 			name = "UserDefaults-watchOS";
 			productName = "UserDefaults-watchOS";
-			productReference = 633AA0D32019371C006EDC04 /* UserDefaults_watchOS.framework */;
+			productReference = 633AA0D32019371C006EDC04 /* UserDefaults.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		633AA0E02019378A006EDC04 /* UserDefaults-tvOS */ = {
@@ -304,7 +304,7 @@
 			);
 			name = "UserDefaults-tvOS";
 			productName = "UserDefaults-tvOS";
-			productReference = 633AA0E12019378A006EDC04 /* UserDefaults_tvOS.framework */;
+			productReference = 633AA0E12019378A006EDC04 /* UserDefaults.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		635195AF1FDAFB6800522A27 /* UserDefaults-macOS */ = {
@@ -562,7 +562,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.watchOS.UserDefaults;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UserDefaults;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -586,7 +586,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.watchOS.UserDefaults;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UserDefaults;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -609,7 +609,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.tvOS.UserDefaults;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UserDefaults;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -632,7 +632,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.davidwalter.frameworks.tvOS.UserDefaults;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UserDefaults;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
