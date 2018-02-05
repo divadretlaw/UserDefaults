@@ -49,6 +49,7 @@ class UserDefaultsTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+        self.userDefaults.clearAll()
     }
     
     // MARK: - Single
@@ -57,48 +58,72 @@ class UserDefaultsTests: XCTestCase {
         let value = true
         userDefaults[.bool] = value
         assert(userDefaults[.bool] == value)
+        
+        userDefaults[.bool] = nil
+        assert(userDefaults[.bool] == nil)
     }
     
     func testInt() {
         let value = 42
         userDefaults[.int] = value
         assert(userDefaults[.int] == value)
+        
+        userDefaults[.int] = nil
+        assert(userDefaults[.int] == nil)
     }
     
     func testFloat() {
         let value: Float = 42.0
         userDefaults[.float] = value
         assert(userDefaults[.float] == value)
+        
+        userDefaults[.float] = nil
+        assert(userDefaults[.float] == nil)
     }
     
     func testDouble() {
         let value: Double = 42.0
         userDefaults[.double] = value
         assert(userDefaults[.double] == value)
+        
+        userDefaults[.double] = nil
+        assert(userDefaults[.double] == nil)
     }
     
     func testString() {
         let value = "String"
         userDefaults[.string] = value
         assert(userDefaults[.string] == value)
+        
+        userDefaults[.string] = nil
+        assert(userDefaults[.string] == nil)
     }
     
     func testData() {
         let value = Data(bytes: [1,0,1,0])
         userDefaults[.data] = value
         assert(userDefaults[.data] == value)
+        
+        userDefaults[.data] = nil
+        assert(userDefaults[.data] == nil)
     }
     
     func testDate() {
         let value = Date()
         userDefaults[.date] = value
         assert(userDefaults[.date] == value)
+        
+        userDefaults[.date] = nil
+        assert(userDefaults[.date] == nil)
     }
 
     func testURL() {
         let value = URL(string: "https://github.com/")!
         userDefaults[.url] = value
         assert(userDefaults[.url] == value)
+        
+        userDefaults[.url] = nil
+        assert(userDefaults[.url] == nil)
     }
     
     // MARK: - Array
@@ -200,5 +225,4 @@ class UserDefaultsTests: XCTestCase {
         userDefaults[.urlDictionary] = value
         assert(userDefaults[.urlDictionary]! == value)
     }
-
 }
