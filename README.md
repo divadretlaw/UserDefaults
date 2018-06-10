@@ -20,6 +20,8 @@ extension DefaultsKeys {
   static let key = DefaultsKey<String>("key")
   static let number = DefaultsKey<Double>("number")
   static let condition = DefaultsKey<Bool>("condition")
+  // eg. struct SomeCodable : Codeable { ... }
+  static let codeable = DefaultsKey<SomeCodable>("somecodeable")
 }
 ```
 
@@ -31,6 +33,7 @@ Static keys
 UserDefaults.standard[.key] = "Value"
 UserDefaults.standard[.number] = -3.4
 UserDefaults.standard[.condition] = true
+UserDefaults.standard[.codeable] = SomeCodable()
 ```
 
 String Keys
@@ -47,24 +50,24 @@ Static Keys
 
 ```swift
 var string = UserDefaults.standard[.key]
-// string = Optional(Value)
+// string = Optional<String>
 
-if (UserDefaults.standard[.condition]) {
+if UserDefaults.standard[.condition] {
   // true
 }
+
+let someCodable: SomeCodable? = UserDefaults.standard[.codeable]
+// someCodable = Optional<SomeCodable>
 ```
 
 String Keys
 
 ```swift
 let object = UserDefaults.standard["key"]
-// object = Optional(Value)
+// object = Optional<Any>
 
 let string = UserDefaults.standard.string("key")
-// string = Optional("Value")
-
-let string = UserDefaults.standard.stringValue("key")
-// string = "Value"
+// string = Optional<String>
 ```
 
 ### Alter UserDefaults
@@ -80,7 +83,7 @@ UserDefaults.standard[.number] *= 1.2
 String Keys
 
 ```swift
-UserDefaults.standard["key"] = UserDefaults.standard.stringValue("key") + ". Other value."
+UserDefaults.standard["key"] = UserDefaults.standard.string(forKey: "key") ?? "" + ". Other value."
 
 UserDefaults.standard["number"] = UserDefaults.standard.double("number") * 1.2
 ```
