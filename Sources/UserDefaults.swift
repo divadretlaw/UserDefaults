@@ -28,51 +28,69 @@ public extension UserDefaults {
 
     // MARK: - subscripts
  
-    public subscript(udkey: DefaultsKey<Bool>) -> Bool {
-        get { return value(udkey) }
-        set { self[udkey.key] = newValue }
+    public subscript(key: DefaultsKey<Bool>) -> Bool {
+        get { return value(key) }
+        set { self[key.stringValue] = newValue }
     }
     
-    public subscript(udkey: DefaultsKey<Int>) -> Int {
-        get { return value(udkey) }
-        set { self[udkey.key] = newValue }
+    public subscript(key: DefaultsKey<Int>) -> Int {
+        get { return value(key) }
+        set { self[key.stringValue] = newValue }
     }
     
-    public subscript(udkey: DefaultsKey<Float>) -> Float {
-        get { return value(udkey) }
-        set { self[udkey.key] = newValue }
+    public subscript(key: DefaultsKey<Float>) -> Float {
+        get { return value(key) }
+        set { self[key.stringValue] = newValue }
     }
     
-    public subscript(udkey: DefaultsKey<Double>) -> Double {
-        get { return value(udkey) }
-        set { self[udkey.key] = newValue }
+    public subscript(key: DefaultsKey<Double>) -> Double {
+        get { return value(key) }
+        set { self[key.stringValue] = newValue }
+    }
+	
+    public subscript<T>(key: DefaultsKey<T>) -> T? {
+        get { return value(key) }
+        set { self[key.stringValue] = newValue }
+    }
+	
+	// MARK: Codeable workarounds
+	
+	public subscript(key: DefaultsKey<String>) -> String? {
+		get { return value(key) }
+		set { self[key.stringValue] = newValue }
+	}
+	
+	public subscript(key: DefaultsKey<Data>) -> Data? {
+		get { return value(key) }
+		set { self[key.stringValue] = newValue }
+	}
+	
+	public subscript(key: DefaultsKey<Date>) -> Date? {
+		get { return value(key) }
+		set { self[key.stringValue] = newValue }
+	}
+	
+    
+    // MARK: URL workarounds
+    
+    public subscript(key: DefaultsKey<URL>) -> URL? {
+        get { return url(forKey: key.stringValue) }
+        set { self[key.stringValue] = newValue }
     }
     
-    public subscript<T>(udkey: DefaultsKey<T>) -> T? {
-        get { return value(udkey) }
-        set { self[udkey.key] = newValue }
-    }
-    
-    // MARK: - URL workarounds
-    
-    public subscript(udkey: DefaultsKey<URL>) -> URL? {
-        get { return url(forKey: udkey.key) }
-        set { self[udkey.key] = newValue }
-    }
-    
-    public subscript(udkey: DefaultsKey<[URL]>) -> [URL]? {
+    public subscript(key: DefaultsKey<[URL]>) -> [URL]? {
         get {
-            guard let urls = array(forKey: udkey.key) as? [String] else { return nil }
+            guard let urls = array(forKey: key.stringValue) as? [String] else { return nil }
             return urls.map { URL(string: $0) ?? NSURL() as URL }
         }
         set {
-            self[udkey.key] = newValue
+            self[key.stringValue] = newValue
         }
     }
     
-    public subscript(udkey: DefaultsKey<[String : URL]>) -> [String : URL]? {
+    public subscript(key: DefaultsKey<[String : URL]>) -> [String : URL]? {
         get {
-            guard let urls = dictionary(forKey: udkey.key) as? [String : String] else { return nil }
+            guard let urls = dictionary(forKey: key.stringValue) as? [String : String] else { return nil }
             var urlDict = [String:URL]()
             for url in urls {
                 urlDict[url.key] = URL(string: url.value) ?? NSURL() as URL
@@ -80,9 +98,20 @@ public extension UserDefaults {
             return urlDict
         }
         set {
-            self[udkey.key] = newValue
+            self[key.stringValue] = newValue
         }
     }
+	
+	public subscript<T: Codable>(key: DefaultsKey<T>) -> T? {
+		get {
+			guard let data = data(forKey: key.stringValue) else { return nil }
+			return try? JSONDecoder().decode(T.self, from: data)
+		}
+		set {
+			let data = try? JSONEncoder().encode(newValue)
+			self[key.stringValue] = data
+		}
+	}
     
     // MARK: - String subscript
 
@@ -136,40 +165,47 @@ public extension UserDefaults {
         }
     }
     
-    // MARK: - Getting values associated with the specified UDKey
+    // MARK: - Getting values associated with the specified DefaultsKey
     
     private func value(_ key: DefaultsKey<Bool>) -> Bool {
-        return bool(forKey: key.key)
+        return bool(forKey: key.stringValue)
     }
     
     private func value(_ key: DefaultsKey<Int>) -> Int {
-        return integer(forKey: key.key)
+        return integer(forKey: key.stringValue)
     }
     
     private func value(_ key: DefaultsKey<Float>) -> Float {
-        return float(forKey: key.key)
+        return float(forKey: key.stringValue)
     }
     
     private func value(_ key: DefaultsKey<Double>) -> Double {
-        return double(forKey: key.key)
+        return double(forKey: key.stringValue)
     }
     
     private func value<T>(_ key: DefaultsKey<T>) -> T? {
-        return object(forKey: key.key) as? T
+        return object(forKey: key.stringValue) as? T
     }
-    
+	
+	// MARK: - Getting values associated with the specified String key
+	
+	public func value<T>(forKey key: String) -> T? {
+		return object(forKey: key) as? T
+	}
+	
     // MARK : Clearing UserDefaults
 
-    /**
-     * Deletes the stored value associated with the specified key
-     */
+    /// Deletes the stored value associated with the specified String key
     public func clear(_ key: String) {
         removeObject(forKey: key)
     }
-    
-    /**
-     * Deletes every stored value in the UserDefaults
-     */
+	
+	/// Deletes the stored value associated with the specified DefaultsKey
+	public func clear<T>(_ key: DefaultsKey<T>) {
+		removeObject(forKey: key.stringValue)
+	}
+	
+    /// Deletes every stored value in UserDefaults
     public func clearAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             removePersistentDomain(forName: appDomain)
@@ -180,8 +216,8 @@ public extension UserDefaults {
 public class DefaultsKeys { fileprivate init() {} }
 
 public class DefaultsKey<T> : DefaultsKeys {
-    public let key : String
-    public init(_ key: String) {
-        self.key = key
+    public let stringValue : String
+    public init(_ value: String) {
+        self.stringValue = value
     }
 }

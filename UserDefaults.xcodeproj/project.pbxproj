@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		632881AE20CD3A34003DF0E4 /* SomeCodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632881AD20CD3A34003DF0E4 /* SomeCodeable.swift */; };
+		632881AF20CD3A34003DF0E4 /* SomeCodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632881AD20CD3A34003DF0E4 /* SomeCodeable.swift */; };
 		633AA0D72019371C006EDC04 /* UserDefaults_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 633AA0D52019371C006EDC04 /* UserDefaults_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		633AA0DB20193736006EDC04 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351959B1FDAF72F00522A27 /* UserDefaults.swift */; };
 		633AA0E52019378A006EDC04 /* UserDefaults_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 633AA0E32019378A006EDC04 /* UserDefaults_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		632881AD20CD3A34003DF0E4 /* SomeCodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeCodeable.swift; sourceTree = "<group>"; };
 		633AA0D32019371C006EDC04 /* UserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633AA0D52019371C006EDC04 /* UserDefaults_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults_watchOS.h; sourceTree = "<group>"; };
 		633AA0D62019371C006EDC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				636BF0A32012164E000B0E1E /* Tests.swift */,
+				632881AD20CD3A34003DF0E4 /* SomeCodeable.swift */,
 				633AA0EE20193A65006EDC04 /* iOS */,
 				633AA0F820193A74006EDC04 /* macOS */,
 			);
@@ -519,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632881AE20CD3A34003DF0E4 /* SomeCodeable.swift in Sources */,
 				63E8B72C20193B29005B1F50 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632881AF20CD3A34003DF0E4 /* SomeCodeable.swift in Sources */,
 				63E8B73C20193B74005B1F50 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

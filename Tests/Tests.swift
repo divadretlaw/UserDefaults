@@ -36,6 +36,8 @@ extension DefaultsKeys {
     static let dataDictionary = DefaultsKey<[String:Data]>("dataDictionary")
     static let dateDictionary = DefaultsKey<[String:Date]>("dateDictionary")
     static let urlDictionary = DefaultsKey<[String:URL]>("urlDictionary")
+	
+	static let codable = DefaultsKey<SomeCodeable>("codeable")
 }
 
 class UserDefaultsTests: XCTestCase {
@@ -225,4 +227,20 @@ class UserDefaultsTests: XCTestCase {
         userDefaults[.urlDictionary] = value
         assert(userDefaults[.urlDictionary]! == value)
     }
+	
+	// MARK: - Codeable
+	
+	func testCodable() {
+		guard let data = SomeCodeable.json.data(using: .utf8) else {
+			assertionFailure("Invalid data")
+			return
+		}
+		
+		let writeValue = try! JSONDecoder().decode(SomeCodeable.self, from: data)
+		userDefaults[.codable] = writeValue
+		
+		let readValue: SomeCodeable = userDefaults[.codable]!
+		assert(readValue == writeValue)
+	}
+
 }
